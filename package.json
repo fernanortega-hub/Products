@@ -1,0 +1,23 @@
+{
+  "name": "evaluacion5---segundo-parcial-grupo_51",
+  "version": "1.0.0",
+  "description": ">**Modalidad**",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TestClasss/evaluacion5---segundo-parcial-grupo_51.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TestClasss/evaluacion5---segundo-parcial-grupo_51/issues"
+  },
+  "homepage": "https://github.com/TestClasss/evaluacion5---segundo-parcial-grupo_51#readme",
+  "keywords": [],
+  "dependencies": {
+    "tailwindcss": "^2.2.17"
+  }
+}
