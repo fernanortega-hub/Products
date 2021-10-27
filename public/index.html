@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="../imgs/icon_logo.ico" type="image/x-icon">
-    <script defer src="./main.js"></script>
+    <script defer src="./main.js"></script> <!--Defer se usa para que el renderizado de JavaScript se ejecute al final de la pág-->
     <title>PC World</title>
 </head>
 <body class="bg-gray-300">
@@ -16,15 +16,17 @@
         <h1 class="text-xl lg:text-2xl lg:hidden"> PC World </h1>
     </header>
 
-    <!-- w-full flex justify-center flex flex-wrap flex-col items-center -->
-    <div class="w-full flex justify-center flex flex-wrap flex-col items-center lg:grid grid-cols-2 w-3\/6">
-        <div class="flex flex-wrap flex-col items-center content-end">
-            <input type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded">
-            <input type="text" placeholder="Enter an atribute" class="p-1.5 m-2  text-center w-52 rounded">
+    <!-- Adding product information -->
+    <div  class="w-full flex justify-center flex flex-wrap flex-col items-center lg:grid grid-cols-2 w-3\/6">
+        <form id="submit-info" class="flex flex-wrap flex-col items-center content-end">
+            <input id="product" type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded">
+            <input id="atribute" type="text" placeholder="Enter an atribute" class="p-1.5 m-2  text-center w-52 rounded">
+            <input id="img" type="text" placeholder="Image link" class="p-1.5 m-2  text-center w-52 rounded">
             <button class="p-1.5 w-16 bg-green-200 rounded"> ✓ Add </button>
-        </div>
+        </form>
+
         <div class="flex flex-wrap flex-col items-center content-start">
-            <input type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
+            <input id="search" type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
             <select name="filters-types" id="" class="p-1.5 m-2  w-52 rounded">
                 <option disabled selected">Select a filter</option>
                 <option value="atribute1">atribute1</option>
@@ -35,6 +37,7 @@
             </select>
             <button class="p-1.5 rounded bg-yellow-300 "> 🔎 Search </button>
         </div>
+
     </div>
     
     <section class=" flex justify-center mt-3 flex flex-wrap flex-row items-center">
