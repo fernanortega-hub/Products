@@ -15,15 +15,23 @@
         <h1 class="text-xl lg:text-2xl lg:hidden"> PC World </h1>
     </header>
 
-    <div class="w-full flex justify-center flex flex-wrap flex-col items-center">
-        <div class="flex flex-col items-center">
+    <!-- w-full flex justify-center flex flex-wrap flex-col items-center -->
+    <div class="w-full flex justify-center flex flex-wrap flex-col items-center lg:grid grid-cols-2 w-3\/6">
+        <div class="flex flex-wrap flex-col items-center content-end">
             <input type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded">
             <input type="text" placeholder="Enter a atribute" class="p-1.5 m-2  text-center w-52 rounded">
             <button class="p-1.5 w-16 bg-green-200 rounded"> ✓ Add </button>
         </div>
-        <div>
+        <div class="flex flex-wrap flex-col items-center content-start">
             <input type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
-            <button class="p-1.5 bg-transparent rounded"> 🔎 </button>
+            <select name="filters-types" id="" class="p-1.5 m-2  w-52 rounded">
+                <option disabled selected">Select a filter</option>
+                <option value="atribute1">atribute1</option>
+                <option value="atribute2">atribute2</option>
+                <option value="atribute3">atribute3</option>
+                <option value="atribute4">atribute4</option>
+            </select>
+            <button class="p-1.5 rounded bg-yellow-300 "> 🔎 Search </button>
         </div>
     </div>
     
@@ -41,6 +49,7 @@
             <h2>Pc</h2>
             <h3>Atributes</h3>
         </div>
+
     </section>
 </body>
 </html>
