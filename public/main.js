@@ -1,15 +1,11 @@
 let formInfo = document.getElementById('submit-info'); //Obteniendo los elementos del form con id='submit-info'
 let searchInfo = document.getElementById('search'); //Obteniendo los elementos del form con el id='search'
 
-
-
 //Cuando cargue la ventana
 window.onload = () =>{
     renderDataFromSource(getLS('pcWorld')); //Obteniendo los datos de 'pcWorld' desde el localStorage
     
 }
-
-
 
 //Obtner los datos del localStorage
 getLS = (key) =>{
@@ -33,27 +29,27 @@ renderDataFromSource = (source) => { //Los datos se van a pasar a la función y 
     if (source) {
         source.forEach(it => {
             let pcImg = document.createElement('img'); //Crear elementos
-            pcImg.className = "w-28 justify-center rounded";
+            pcImg.className = "w-28 rounded";
             pcImg.src = it.img;
 
             let pcName = document.createElement('h2'); //Crear un h2 para el título del producto
-            pcName.className = "text-center text-white p-1 mt-1 font-semibold";
+            pcName.className = "text-center text-white p-1 mt-1 font-semibold w-full max-h-6";
             pcName.innerHTML = it.product;
 
             let pcAtribute = document.createElement('h3'); //Crear un h3 para la categoría del producto
-            pcAtribute.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcAtribute.className = "text-center text-sm m-1 bg-blue-300 rounded p-0.5 max-h-6";
             pcAtribute.innerHTML =  it.atribute;
 
             let pcType = document.createElement('h3'); //Crear un h3 para el tipo de producto
-            pcType.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcType.className = "text-center text-sm bg-purple-400 m-1 rounded p-0.5 max-h-6";
             pcType.innerHTML = it.type;
 
             let pcPrice = document.createElement('h3'); //Crear un h3 para el precio del producto
-            pcPrice.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcPrice.className = "text-center text-sm bg-green-300 m-1 rounded p-0.5 max-h-6";
             pcPrice.innerHTML = '$' + it.price;
 
             let div = document.createElement('div');//Crear elemento div
-            div.className = "w-36 bg-gradient-to-r from-blue-800 via-purple-600 to-indigo-500 flex flex-col items-center py-5 px-3 rounded-xl m-2.5 ";
+            div.className = "w-36 bg-gradient-to-r from-blue-800 via-purple-600 to-indigo-500 flex flex-wrap justify-center py-5 px-3 rounded-xl m-2.5";
 
             //Guardando los valores en el div creado
             div.appendChild(pcImg);
@@ -78,29 +74,28 @@ formInfo.onsubmit = (event) => {
     let price = document.getElementById('price').value;
     let img = document.getElementById('img').value;
 
+    let regex = new RegExp('/^\d+$/');
+
     let currLs = getLS('pcWorld'); //Añadiendo key al local storage  
 
-    if (product==""||atribute==""||type==""||price==""||img=="") // Si los inputs estan vacios o falta uno, avisar a usuario que rellene todos los datos
-        return alert('Fill data');
+    if (product==""||atribute==""||type==""||(price=="" || isNaN(price))||img=="") // Si hay inputs vacios o hay carecteres no correspondientes, avisar a usuario que rellene todos los datos
+        return alert('Check data');
 
     let newVal = []; //Declarando arreglo para guardar los elementos
-
+    
     if (!currLs) { //Si el localStorage actual no está vacío
         newVal.push({product, atribute, type, price, img}); //Entonces pushear los elementos 
     }
     else{
         newVal = [...currLs, {product, atribute, type, price, img}]; // Sino asignar los valores
     }
-
+    
     //Actualizar el localStorage
     setLS('pcWorld', newVal);
 
     //Obteniendo los datos de 'pcWorld' desde el localStorage
     renderDataFromSource(getLS('pcWorld')); //Mostrando los datos después de guardar
 }
-
-
-
 
 //Campo search 
 searchInfo.onsubmit = (event) =>{
