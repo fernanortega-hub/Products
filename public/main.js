@@ -40,17 +40,27 @@ renderDataFromSource = (source) => { //Los datos se van a pasar a la función y 
             pcName.className = "text-center text-white p-1 mt-1 font-semibold";
             pcName.innerHTML = it.product;
 
-            let pcAtri = document.createElement('h3'); //Crear un h3 para los atributos del producto
-            pcAtri.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
-            pcAtri.innerHTML = it.atribute;
+            let pcAtribute = document.createElement('h3'); //Crear un h3 para la categoría del producto
+            pcAtribute.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcAtribute.innerHTML =  it.atribute;
+
+            let pcType = document.createElement('h3'); //Crear un h3 para el tipo de producto
+            pcType.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcType.innerHTML = it.type;
+
+            let pcPrice = document.createElement('h3'); //Crear un h3 para el precio del producto
+            pcPrice.className = "text-center text-sm bg-blue-300 rounded px-1 max-w-28";
+            pcPrice.innerHTML = '$' + it.price;
 
             let div = document.createElement('div');//Crear elemento div
-            div.className = "w-36 bg-gradient-to-r from-blue-800 via-purple-600 to-indigo-500 flex flex-col items-center py-5 px-3 rounded-xl m-2.5";
+            div.className = "w-36 bg-gradient-to-r from-blue-800 via-purple-600 to-indigo-500 flex flex-col items-center py-5 px-3 rounded-xl m-2.5 ";
 
             //Guardando los valores en el div creado
             div.appendChild(pcImg);
             div.appendChild(pcName);
-            div.appendChild(pcAtri);
+            div.appendChild(pcAtribute);
+            div.appendChild(pcType);
+            div.appendChild(pcPrice);
 
             pcCard.appendChild(div); //Se guarda el div creado anteriormente en el card principal
 
@@ -64,20 +74,22 @@ formInfo.onsubmit = (event) => {
 
     let product = document.getElementById("product").value;
     let atribute = document.getElementById('atribute').value;
+    let type = document.getElementById('type').value;
+    let price = document.getElementById('price').value;
     let img = document.getElementById('img').value;
 
     let currLs = getLS('pcWorld'); //Añadiendo key al local storage  
 
-    if (product==""||atribute==""||img=="") // Si los inputs estan vacios o falta uno, avisar a usuario que rellene todos los datos
+    if (product==""||atribute==""||type==""||price==""||img=="") // Si los inputs estan vacios o falta uno, avisar a usuario que rellene todos los datos
         return alert('Fill data');
 
     let newVal = []; //Declarando arreglo para guardar los elementos
 
     if (!currLs) { //Si el localStorage actual no está vacío
-        newVal.push({product, atribute, img}); //Entonces pushear los elementos 
+        newVal.push({product, atribute, type, price, img}); //Entonces pushear los elementos 
     }
     else{
-        newVal = [...currLs, {product, atribute, img}]; // Sino asignar los valores
+        newVal = [...currLs, {product, atribute, type, price, img}]; // Sino asignar los valores
     }
 
     //Actualizar el localStorage
