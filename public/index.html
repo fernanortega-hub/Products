@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="../imgs/icon_logo.ico" type="image/x-icon">
-    <script defer src="./main.js"></script> <!--Defer se usa para que el renderizado de JavaScript se ejecute al final de la pág-->
+    <script defer src="./main.js"></script> <!--Defer se usa para que el renderizado de JavaScript se ejecute al final de la página-->
     <title>PC World</title>
 </head>
 <body class="bg-gray-300">
@@ -16,7 +16,7 @@
         <h1 class="text-xl lg:text-2xl lg:hidden"> PC World </h1>
     </header>
 
-    <!-- Adding product information -->
+    <!-- Añadiendo información del producto -->
     <div class="w-full flex justify-center flex flex-wrap flex-col items-center lg:grid grid-cols-2 w-3\/6">
         <form id="submit-info" class="flex flex-wrap flex-col items-center content-end">
             <input id="product" type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded" maxlength="12">
@@ -26,29 +26,19 @@
             hover:from-indigo-600 hover:via-purple-500 hover:to-blue-700"> ✓ Add </button>
         </form>
 
-        <div class="flex flex-wrap flex-col items-center content-start">
-            <input id="search" type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
+        <!--Campo search de la página -->
+        <form id="search" class="flex flex-wrap flex-col items-center content-start">
+            <input id="searchInp" type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
             <button class="p-1.5 rounded text-white bg-yellow-600 bg-gradient-to-br font-bold 
             hover:from-red-600 hover:via-yellow-500 hover:to-yellow-400"> 🔎 Search </button>
-        </div>
+        </form>
 
     </div>
-    
+     
     <main class=" w-full max-w-screen-lg mx-auto mt-10">
+        <!-- Tarjeta donde se mostraran todos los productos-->
         <div id="pcWorld-card" class="w-full flex flex-wrap justify-center ">
-            <!-- Tarjeta donde se mostraran todos los productos-->
-        <!-- Ejemplos, comentar luego-->
-        <!--<div id="pcWorld-card" class="w-36 bg-green-600 flex flex-col items-center py-5 px-3 rounded-xl m-2.5">
-            <img src="https://picsum.photos/200/200" alt="image" class="w-28 justify-center rounded">
-            <h2>Pc</h2>
-            <h3 class="text-sm">Atributes</h3>
-        </div>
-
-        <div class="w-36 max-h-52 bg-green-600 flex flex-col items-center py-5 px-3 rounded-xl m-2.5">
-            <img src="https://picsum.photos/200/200" alt="image" class="w-28 justify-center rounded">
-            <h2>Pc</h2>
-            <h3>Atributes</h3>
-        </div>>-->
+           
         </div>
     </main>
 </body>

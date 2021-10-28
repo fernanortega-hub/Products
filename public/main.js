@@ -1,24 +1,37 @@
-let formInfo = document.getElementById('submit-info'); //Obteniendo los elementos de form
+let formInfo = document.getElementById('submit-info'); //Obteniendo los elementos del form con id='submit-info'
+let searchInfo = document.getElementById('search'); //Obteniendo los elementos del form con el id='search'
 
-getLS = (key) =>{
-    return JSON.parse(localStorage.getItem(key)); //Convirtiendo el localStorage a un string
+
+
+//Cuando cargue la ventana
+window.onload = () =>{
+    renderDataFromSource(getLS('pcWorld')); //Obteniendo los datos de 'pcWorld' desde el localStorage
+    
 }
 
+
+
+//Obtner los datos del localStorage
+getLS = (key) =>{
+    return JSON.parse(localStorage.getItem(key)); //Convirtiendo el string a un objeto en JS
+}
+
+//Setear el objeto como string
 setLS = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
+//Función que va a mostrar los datos guardados en cards
+renderDataFromSource = (source) => { //Los datos se van a pasar a la función y se van a a guardar en la variable source 
 
-function renderDataLs(){
-
-    let pcWorld = getLS('pcWorld'); //Bajando datos de localStorage a la función 
 
     let pcCard = document.getElementById('pcWorld-card'); //Obtener los elementos de div
+    //Vaciar cards
     pcCard.innerHTML = '';
 
-    //Si pcWorld tiene datos, entonces: 
-    if (pcWorld) {
-        pcWorld.forEach(it => {
+    //Si source tiene datos, entonces: 
+    if (source) {
+        source.forEach(it => {
             let pcImg = document.createElement('img'); //Crear elementos
             pcImg.className = "w-28 justify-center rounded";
             pcImg.src = it.img;
@@ -64,21 +77,29 @@ formInfo.onsubmit = (event) => {
         newVal.push({product, atribute, img}); //Entonces pushear los elementos 
     }
     else{
-        newVal = [...currLs, {product, atribute, img}]; // Si no asginar los valores
+        newVal = [...currLs, {product, atribute, img}]; // Sino asignar los valores
     }
 
+    //Actualizar el localStorage
     setLS('pcWorld', newVal);
 
-    renderDataLs(); //Mostrando los datos después de guardar
-}
-
-
-//Mostrar cuando se carga la página
-
-window.onload = () =>{
-    renderDataLs();
-    
+    //Obteniendo los datos de 'pcWorld' desde el localStorage
+    renderDataFromSource(getLS('pcWorld')); //Mostrando los datos después de guardar
 }
 
 
 
+
+//Campo search 
+searchInfo.onsubmit = (event) =>{
+    event.preventDefault();
+
+    let searchInp = document.getElementById("searchInp").value; //Otbteniendo la información que introduzca el cliente
+    console.log(searchInp);
+     
+    //Filtrar por nombre del producto
+    let filteredInfo = !(searchInp == "") ? getLS('pcWorld').filter(it => it.product.toLowerCase() == searchInp.toLowerCase()) : getLS('pcWorld');
+
+    renderDataFromSource(filteredInfo); //Mostrar los cards que encontró con ese nombre
+
+}
