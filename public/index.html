@@ -19,22 +19,32 @@
     <!-- Añadiendo información del producto -->
     <div class="w-full flex justify-center flex flex-wrap flex-col items-center">
         
-        <form id="submit-info" class="flex flex-wrap flex-col items-center content-end lg:flex lg:flex-wrap lg:flex-row justify-center">
+        <form class="flex flex-wrap flex-col items-center content-end 
+        lg:flex lg:flex-wrap lg:flex-row lg:justify-center lg:w-5/12">
             <input id="product" type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded" maxlength="12">
             <input id="atribute" type="text" placeholder="Enter an atribute" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
             <input id="type" type="text" placeholder="Enter the product type" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
             <input id="price" type="text" placeholder="Enter a price" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
-            <input id="weight" type="text" placeholder="Enter product weight" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
-            <input id="product-size" type="text" placeholder="Enter product size" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
+            <input id="weight" type="text" placeholder="Enter product weight" class="p-1.5 m-2  text-center w-52 rounded" maxlength="4">
+            <input id="year" type="text" placeholder="Enter year of production" class="p-1.5 m-2  text-center w-52 rounded" maxlength="12">
             <input id="img" type="text" placeholder="Image link" class="p-1.5 m-2  text-center w-52 rounded">
-            <button class="p-1.5 w-16 bg-indigo-700 bg-gradient-to-br rounded text-white font-bold 
-            hover:from-indigo-600 hover:via-purple-500 hover:to-blue-700"> ✓ Add </button> 
         </form>
-
+        <div>
+            <button id="add" class="p-1.5 w-16 bg-indigo-700 bg-gradient-to-br rounded text-white font-bold 
+            hover:from-indigo-600 hover:via-purple-500 hover:to-blue-700"> ✓ Add </button>
+        </div>
         
         <!--Campo search de la página -->
-        <form id="search" class="flex flex-wrap flex-col items-center content-start">
+        <form id="search" class="flex flex-wrap flex-col items-center content-start
+        lg:flex lg:flex-wrap lg:flex-row lg:justify-center lg:w-3/12"">
             <input id="searchInp" type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
+            <select name="filters-types" id="filters-types" class="p-1.5 m-2 w-52 rounded">
+                <option disabled value">Select a filter</option>
+                <option value="atribute1">atribute1</option>
+                <option value="atribute2">atribute2</option>
+                <option value="atribute3">atribute3</option>
+                <option value="atribute4">atribute4</option>
+            </select>
             <button class="p-1.5 rounded text-white bg-yellow-600 bg-gradient-to-br font-bold 
             hover:from-red-600 hover:via-yellow-500 hover:to-yellow-400"> 🔎 Search </button>
         </form>
