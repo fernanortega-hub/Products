@@ -107,7 +107,6 @@ searchInfo.onsubmit = (event) =>{
     event.preventDefault();
 
     let searchInp = document.getElementById("searchInp").value; //Otbteniendo la información que introduzca el cliente
-    console.log(searchInp);
      
     //Filtrar por nombre del producto
     let filteredInfo = !(searchInp == "") ? getLS('pcWorld').filter(it => it.product.toLowerCase() == searchInp.toLowerCase()) : getLS('pcWorld');
