@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="../imgs/icon_logo.ico" type="image/x-icon">
+    <script defer src="./main.js"></script> <!--Defer se usa para que el renderizado de JavaScript se ejecute al final de la pág-->
     <title>PC World</title>
 </head>
 <body class="bg-gray-300">
@@ -15,30 +16,27 @@
         <h1 class="text-xl lg:text-2xl lg:hidden"> PC World </h1>
     </header>
 
-    <!-- w-full flex justify-center flex flex-wrap flex-col items-center -->
+    <!-- Adding product information -->
     <div class="w-full flex justify-center flex flex-wrap flex-col items-center lg:grid grid-cols-2 w-3\/6">
-        <div class="flex flex-wrap flex-col items-center content-end">
-            <input type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded">
-            <input type="text" placeholder="Enter a atribute" class="p-1.5 m-2  text-center w-52 rounded">
+        <form id="submit-info" class="flex flex-wrap flex-col items-center content-end">
+            <input id="product" type="text" placeholder="Enter a product" class="p-1.5  m-2 text-center w-52 rounded">
+            <input id="atribute" type="text" placeholder="Enter an atribute" class="p-1.5 m-2  text-center w-52 rounded">
+            <input id="img" type="text" placeholder="Image link" class="p-1.5 m-2  text-center w-52 rounded">
             <button class="p-1.5 w-16 bg-green-200 rounded"> ✓ Add </button>
-        </div>
+        </form>
+
         <div class="flex flex-wrap flex-col items-center content-start">
-            <input type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
-            <select name="filters-types" id="" class="p-1.5 m-2  w-52 rounded">
-                <option selected disabled>Select a filter</option>
-                <option value="atribute1">atribute1</option>
-                <option value="atribute2">atribute2</option>
-                <option value="atribute3">atribute3</option>
-                <option value="atribute4">atribute4</option>
-            </select>
+            <input id="search" type="text" placeholder="Search a product" class="p-1.5 m-2 text-center w-52 rounded">
             <button class="p-1.5 rounded bg-yellow-300 "> 🔎 Search </button>
         </div>
+
     </div>
     
-    <section class=" flex justify-center mt-3 flex flex-wrap flex-row items-center">
-        <!-- Tarjeta donde se mostraran todos los productos-->
+    <main class=" w-full max-w-screen-lg mx-auto mt-10">
+        <div id="pcWorld-card" class="w-full flex flex-wrap justify-center ">
+            <!-- Tarjeta donde se mostraran todos los productos-->
         <!-- Ejemplos, comentar luego-->
-        <div id="id"class="w-36 max-h-52 overflow-auto  bg-green-600 flex flex-col items-center py-5 px-3 rounded-xl m-2.5">
+        <!--<div id="pcWorld-card" class="w-36 bg-green-600 flex flex-col items-center py-5 px-3 rounded-xl m-2.5">
             <img src="https://picsum.photos/200/200" alt="image" class="w-28 justify-center rounded">
             <h2>Pc</h2>
             <h3 class="text-sm">Atributes</h3>
@@ -47,9 +45,9 @@
         <div class="w-36 max-h-52 bg-green-600 flex flex-col items-center py-5 px-3 rounded-xl m-2.5">
             <img src="https://picsum.photos/200/200" alt="image" class="w-28 justify-center rounded">
             <h2>Pc</h2>
-            <h3 class="text-sm">Atributes</h3>
+            <h3>Atributes</h3>
+        </div>>-->
         </div>
-
-    </section>
+    </main>
 </body>
 </html>
